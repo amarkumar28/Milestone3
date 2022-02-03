@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class CustomerDaoImpl implements CustomerDao{
 	Connection connection=null;
 	@Override
-	public void addCostumer(Customer c) {
+	public void addCustomer(Customer c) {
 		PreparedStatement stmt;
 		try {
 			stmt = connection
@@ -34,7 +34,7 @@ public class CustomerDaoImpl implements CustomerDao{
 			if (rs.next()) {
 				return new Customer(rs.getInt(0), rs.getString(1), rs.getString(2), rs.getString(3), rs.getDate(4));
 			} else {
-				throw new BookNotFoundException("Customer with id =" + id + " is not found");
+				throw new CustomerNotFoundException("Customer with id =" + id + " is not found");
 			}
 
 		} catch (SQLException e) {
